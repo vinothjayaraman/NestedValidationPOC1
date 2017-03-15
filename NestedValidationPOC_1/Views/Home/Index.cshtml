@@ -1,0 +1,62 @@
+﻿@model NestedValidationPOC_1.Models.SalesOrder
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using(Html.BeginForm("SaveValues","Home",FormMethod.Post, new { @id = "frmSubmit" }))
+{
+    <div>
+        <table>
+            <tr>
+                <td>
+                    @Html.LabelFor(m=>m.OrderNumber,"Order Number")
+                </td>
+                <td>
+                    @Html.TextBoxFor(m=>m.OrderNumber)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="color: red">
+                    @Html.ValidationMessageFor(m=>m.OrderNumber)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.CustomerName, "Customer Name")
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.CustomerName)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="color: red">
+                    @Html.ValidationMessageFor(m => m.CustomerName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Date, "Order Date")
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Date)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Total, "Order Total")
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Total)
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        @Html.Partial("_SalesItems",Model.Items)
+    </div>
+    <div>
+        <input type="submit" name="Save" value="Save" />
+    </div>
+}
+

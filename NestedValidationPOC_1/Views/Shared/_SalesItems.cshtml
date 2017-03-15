@@ -1,0 +1,27 @@
+﻿@model NestedValidationPOC_1.Models.SalesItem[]
+@{ 
+    ViewData.TemplateInfo.HtmlFieldPrefix = "Items";
+}
+<table>
+    <tr>
+        <th>
+            Item Number
+        </th>
+        <th>
+            Item Name
+        </th>
+        <th>
+            Qty
+        </th>
+        <th>
+            Per Item Price
+        </th>
+        <th>
+            Price
+        </th>
+    </tr>
+    @for (int i = 0; i < Model.Length; i++)
+    {
+        @Html.EditorFor(m=>m[i])
+    }
+</table>

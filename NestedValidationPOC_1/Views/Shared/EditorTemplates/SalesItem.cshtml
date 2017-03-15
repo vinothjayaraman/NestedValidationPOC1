@@ -1,0 +1,24 @@
+﻿@model NestedValidationPOC_1.Models.SalesItem
+
+<tr>
+    <td>
+        @Html.TextBoxFor(m=>m.ItemId)
+    </td>
+    <td>
+        @Html.TextBoxFor(m => m.ItemName)
+    </td>
+    <td>
+        @Html.TextBoxFor(m => m.Qty)
+    </td>
+    <td>
+        @Html.TextBoxFor(m => m.PricePerItem)
+    </td>
+    <td>
+        @Html.TextBoxFor(m => m.TotalPrice)
+    </td>
+</tr>
+<tr>
+    <td colspan="5" style="color: red">
+        @Html.ValidationMessageFor(m=>m.Qty)
+    </td>
+</tr>
